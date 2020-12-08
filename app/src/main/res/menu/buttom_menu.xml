@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/page1"
+        android:icon="@drawable/ic_round_filter_1_24"
+        android:title="page1" />
+    <item
+        android:id="@+id/page2"
+        android:icon="@drawable/ic_round_filter_2_24"
+        android:title="page2" />
+    <item
+        android:id="@+id/page3"
+        android:icon="@drawable/ic_round_filter_3_24"
+        android:title="page3" />
+    <item
+        android:id="@+id/page4"
+        android:icon="@drawable/ic_round_filter_4_24"
+        android:title="page4" />
+</menu>
