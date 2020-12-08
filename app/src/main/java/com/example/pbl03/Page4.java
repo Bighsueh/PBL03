@@ -29,9 +29,10 @@ public class Page4 extends Fragment {
     private String mParam1;
     private String mParam2;
     private View view;
-    private Button button7,button8;
-    private EditText editText4,editText5,editText6;
-    private TextView textView13,textView14;
+    private Button button7, button8;
+    private EditText editText4, editText5, editText6;
+    private TextView textView13, textView14;
+
     public Page4() {
         // Required empty public constructor
     }
@@ -67,43 +68,42 @@ public class Page4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_page4,container,false);
-        editText4=(EditText) view.findViewById(R.id.editText4);
-        editText5=(EditText) view.findViewById(R.id.editText5);
-        editText6=(EditText) view.findViewById(R.id.editText6);
-        textView13=(TextView) view.findViewById(R.id.textView13);
-        textView14=(TextView) view.findViewById(R.id.textView14);
-        button7=(Button) view.findViewById(R.id.button7);
-        button8=(Button) view.findViewById(R.id.button8);
+        view = inflater.inflate(R.layout.fragment_page4, container, false);
+        editText4 = (EditText) view.findViewById(R.id.editText4);
+        editText5 = (EditText) view.findViewById(R.id.editText5);
+        editText6 = (EditText) view.findViewById(R.id.editText6);
+        textView13 = (TextView) view.findViewById(R.id.textView13);
+        textView14 = (TextView) view.findViewById(R.id.textView14);
+        button7 = (Button) view.findViewById(R.id.button7);
+
         button7.setOnClickListener(new View.OnClickListener() {
-            @Override
+            String s = "";
+
             public void onClick(View v) {
-                Integer low=Integer.parseInt(editText4.getText().toString());
-                Integer upp=Integer.parseInt(editText5.getText().toString());
-                Integer quan=Integer.parseInt(editText6.getText().toString());
-                String result="";
-                for (int i=0;i<=quan;i++){
-                    if (i==quan){
-                        result+=Ran(low,upp).toString();
-                    }else{
-                        result+=Ran(low,upp).toString()+",";
+                Integer low = Integer.parseInt(editText4.getText().toString());
+                Integer upp = Integer.parseInt(editText5.getText().toString());
+                Integer quan = Integer.parseInt(editText6.getText().toString());
+                String result = "";
+                for (int i = 0; i <= quan; i++) {
+                    if (i == quan) {
+                        result += Ran(low, upp).toString();
+                    } else {
+                        result += Ran(low, upp).toString() + ",";
                     }
                 }
+                s += "輸入最小為：" + low + " ,輸入最大為：" + upp + " ,輸入範圍為：" + quan + ", 結果為：" + result + "\n ";
                 textView13.setText(result);
+                textView14.setText(s);
             }
         });
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView14.setText("10");
-            }
-        });
+
         return view;
     }
-    private String Ran(int lower,int upper){
-        int r=0;
-        Random ran=new Random(42);
-        r=(int)(Math.random()*(upper-lower+1)+lower);
+
+    private String Ran(int lower, int upper) {
+        int r = 0;
+        Random ran = new Random(42);
+        r = (int) (Math.random() * (upper - lower + 1) + lower);
 //        r =(int)(ran.nextInt(upper-lower)+lower);
         return String.valueOf(r);
     }

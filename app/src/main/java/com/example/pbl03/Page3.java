@@ -27,9 +27,10 @@ public class Page3 extends Fragment {
     private String mParam1;
     private String mParam2;
     private View view;
-    private Button button5,button6;
+    private Button button5, button6;
     private EditText editText3;
-    private TextView textView8,textView9;
+    private TextView textView8, textView9;
+
     public Page3() {
         // Required empty public constructor
     }
@@ -65,39 +66,40 @@ public class Page3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_page3,container,false);
-        editText3=(EditText) view.findViewById(R.id.editText3);
-        textView8=(TextView) view.findViewById(R.id.textView8);
-        textView9=(TextView) view.findViewById(R.id.textView9);
-        button5=(Button) view.findViewById(R.id.button5);
-        button6=(Button) view.findViewById(R.id.button6);
+        view = inflater.inflate(R.layout.fragment_page3, container, false);
+        editText3 = (EditText) view.findViewById(R.id.editText3);
+        textView8 = (TextView) view.findViewById(R.id.textView8);
+        textView9 = (TextView) view.findViewById(R.id.textView9);
+        button5 = (Button) view.findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
-            @Override
+            String s = "";
+
             public void onClick(View v) {
-                Integer n=Integer.parseInt(editText3.getText().toString());
-                String result="";
-                for (int i=0;i<=n;i++){
-                    if (i==n){
-                        result+=Fib(i).toString();
-                    }else{
-                        result+=Fib(i).toString()+",";
+                Integer n = Integer.parseInt(editText3.getText().toString());
+                String result = "";
+                for (int i = 0; i <= n; i++) {
+                    if (i == n) {
+                        result += Fib(i).toString();
+                    } else {
+                        result += Fib(i).toString() + ",";
                     }
                 }
+                s += "輸入數值為：" + n + " ,結果為：" + result + "\n";
                 textView8.setText(result);
+                textView9.setText(s);
             }
         });
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView9.setText("6");
-            }
-        });
+
         return view;
     }
-    private Integer Fib(int n){
-        int fib=0;
-        if (n==0|n==1){return n;}
-        else {fib=Fib(n-1)+Fib(n-2);}
+
+    private Integer Fib(int n) {
+        int fib = 0;
+        if (n == 0 | n == 1) {
+            return n;
+        } else {
+            fib = Fib(n - 1) + Fib(n - 2);
+        }
         return fib;
     }
 }

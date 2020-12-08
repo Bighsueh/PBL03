@@ -41,4 +41,13 @@
             android:id="@+id/action_page4_to_page1"
             app:destination="@id/page1" />
     </fragment>
+    <fragment
+            android:id="@+id/page5"
+            android:name="com.example.pbl03.Page5"
+            android:label="隨機亂數"
+            tools:layout="@layout/fragment_page5" >
+        <action
+                android:id="@+id/action_page4_to_page1"
+                app:destination="@id/page1" />
+    </fragment>
 </navigation>

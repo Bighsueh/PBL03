@@ -27,9 +27,10 @@ public class Page1 extends Fragment {
     private String mParam1;
     private String mParam2;
     private View view;
-    private Button button1,button2;
+    private Button button1, button2;
     private EditText editText1;
-    private TextView textView2,textView3;
+    private TextView textView2, textView3;
+
     public Page1() {
         // Required empty public constructor
     }
@@ -63,36 +64,38 @@ public class Page1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_page1, container, false);
-        view=inflater.inflate(R.layout.fragment_page1,container,false);
-        editText1=(EditText) view.findViewById(R.id.editText1);
-        textView2=(TextView) view.findViewById(R.id.textView2);
-        textView3=(TextView) view.findViewById(R.id.textView3);
-        button1=(Button) view.findViewById(R.id.button1);
-        button2=(Button) view.findViewById(R.id.button2);
+        view = inflater.inflate(R.layout.fragment_page1, container, false);
+        editText1 = (EditText) view.findViewById(R.id.editText1);
+        textView2 = (TextView) view.findViewById(R.id.textView2);
+        textView3 = (TextView) view.findViewById(R.id.textView3);
+        button1 = (Button) view.findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
-            @Override
+            String s = "";
+            String result = "";
+
             public void onClick(View v) {
-                Integer n=Integer.parseInt(editText1.getText().toString());
-                String result=Sum(n);
+                Integer n = Integer.parseInt(editText1.getText().toString());
+                result = Sum(n);
+
+
+                s += "輸入數值為：" + n + " ,結果為：" + result + "\n";
                 textView2.setText(result);
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView3.setText("1");
+                textView3.setText(s);
             }
         });
         return view;
     }
-    private String Sum(int n){
-        int sum=0;
-        for (int i=1;i<=n;i++){
-            sum+=i;
+
+    private String Sum(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += i;
         }
-        return  String.valueOf(sum);
+        return String.valueOf(sum);
     }
 }
